@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>LaTeX to BBCode converter</title>
+<meta charset="utf-8" />
+<style type="text/css">
+body {
+    font-family: sans-serif;
+}
+table {
+    width: 100%;
+}
+th {
+    text-align: left;
+    background: #ddd;
+    padding: 0.25em 0.5em;
+    width: 5em;
+}
+td {
+    background: #eee;
+    padding: 0.25em 0.5em;
+}
+td.output { white-space: pre-wrap; }
+span {
+    background: #eee;
+}
+
+input[type=text] {
+    width: 100%;
+}
+input[type=submit] {
+    float: right;
+}
+label, p.note {
+    font-size: smaller;
+}
+</style>
+<script src="symbols.js" type="text/javascript" charset="utf-8"></script>
+<script src="convert.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body onload="convert();">
+<h1>LaTeX to BBCode</h1>
+<p>The applet converts simple math-mode LaTeX into BBCode markup.  Symbols are converted into unicode, subscripts and superscripts are wrapped in <tt>[sub]</tt> and <tt>[sup]</tt> tags, and bold (<tt>\mathbf</tt>) and italic (<tt>\mathit</tt>) fonts are available.  Fractions and other complicated forms are not available.  You cannot use <tt>\sqrt</tt>, but you may use <tt>\surd</tt>.  Unlike in TeX, spaces are preserved except following commands.  Thus, <tt>a b</tt> becomes <span><i>a b</i></span>, while <tt>\alpha \beta</tt> becomes <span>αβ</span>.</p>
+
+<form onsubmit="return convert();">
+<table>
+    <tr><th>TeX</th><td><input type="text" id="input" onkeyup="autoconvert();" /></td></tr>
+    <tr><th>Options</th><td>
+        <label><input type="checkbox" id="italic" onchange="autoconvert();" checked />Italicize latin letters</label>
+        <label><input type="checkbox" id="auto" checked />Live conversion</label>
+        <input type="submit" value="Convert" /></td></tr>
+    <tr><th>Preview</th><td id="htmloutput" class="output" ></td></tr>
+    <tr><th>BBCode</th><td id="phpbboutput" class="output"></td></tr>
+</table>
+</form>
+
+<p class="note">Mapping for unicode characters from <a href="https://github.com/ypsu/latex-to-unicode">latex-to-unicode</a>.</p>
+</body>
+</html>
