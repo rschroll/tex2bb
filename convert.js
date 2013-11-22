@@ -71,7 +71,7 @@ function stringify(tokens, italicize_latin) {
             continue;
         }
         
-        if (isletter(tokens[i]) && italicize_latin)
+        if (tokens[i].length == 1 && isletter(tokens[i]) && italicize_latin)
             pending.push("i");
         string += open_tags(pending) + tokens[i] + close_tags(pending);
         pending = [];

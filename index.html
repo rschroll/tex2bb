@@ -45,7 +45,7 @@ p.note span {
 
 <body onload="convert();">
 <h1>LaTeX to BBCode</h1>
-<p>The applet converts simple math-mode LaTeX into BBCode markup.  Symbols are converted into unicode, subscripts and superscripts are wrapped in <tt>[sub]</tt> and <tt>[sup]</tt> tags, and bold (<tt>\mathbf</tt>) and italic (<tt>\mathit</tt>) fonts are available.  Fractions and other complicated forms are not available.  You cannot use <tt>\sqrt</tt>, but you may use <tt>\surd</tt>.  Unlike in TeX, spaces are preserved except following commands.  Thus, <tt>a b</tt> becomes <span><i>a b</i></span>, while <tt>\alpha \beta</tt> becomes <span>αβ</span>.</p>
+<p>The applet converts simple math-mode LaTeX into BBCode markup.  Symbols are converted into unicode, subscripts and superscripts are wrapped in <tt>[sub]</tt> and <tt>[sup]</tt> tags, and bold (<tt>\mathbf</tt>) and italic (<tt>\mathit</tt>) fonts are available.  Fractions, arrays, and other complicated forms are not available.  You cannot use <tt>\sqrt</tt>, but you may use <tt>\surd</tt>.  Unlike in math mode, but as in regular mode in LaTeX, spaces are preserved except following commands.  Thus, <tt>a b</tt> becomes <span><i>a b</i></span>, while <tt>\alpha \beta</tt> becomes <span>αβ</span>.</p>
 
 <form onsubmit="return convert();">
 <table>

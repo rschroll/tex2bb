@@ -337,8 +337,16 @@ SYMBOLS = {
 "\\angle": "∠",
 "\\alpha": "α",
 "\\aleph": "א",
+// Added:
+"\\Sigma": "Σ",
+"\\ldots": "…",
+"\\to": "→",
+// Spacing:
+"\\,": " ", // Thin space U+200A
+"\\:": " ", // Medium space U+2009
+"\\;": " ", // Thick space U+2005
+"\\ ": " ", // Regular space
 // Useful escapes:
-"\\ ": " ",
 "\\\\": "\n",
 "\\%": "%",
 // Some HTML character codes:
@@ -346,3 +354,10 @@ SYMBOLS = {
 ">": "&gt;",
 "&": "&amp;",
 }
+// Note: Using U+202F, narrow no-break space
+FUNC_NAMES = ["arccos", "arcsin", "arctan", "arg", "cos", "cosh", "cot", "coth",
+              "csc", "deg", "det", "dim", "exp", "gcd", "hom", "inf", "ker", "lg",
+              "lim", "lim inf", "lim sup", "ln", "log", "max", "min", "Pr", "sec",
+              "sin", "sinh", "sup", "tan", "tanh"]
+for (var i in FUNC_NAMES)
+    SYMBOLS["\\" + FUNC_NAMES[i].replace(" ", "")] = FUNC_NAMES[i] + " "
