@@ -52,6 +52,9 @@ function stringify(tokens, italicize_latin) {
     var pending = [];
     var bracket_close = [];
     for (var i=0; i<tokens.length; i++) {
+        if ((tokens[i] == "_" || tokens[i] == "^") && string.substr(-1, 1) == " ") // U+202F
+            string = string.slice(0,-1);
+        
         var markup = MARKUPS[tokens[i]];
         if (markup !== undefined) {
             pending.push(markup);
