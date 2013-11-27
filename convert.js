@@ -69,7 +69,8 @@ function stringify(tokens, italicize_latin) {
         }
         
         if (tokens[i] == "CLOSE}") {
-            string += close_tags(bracket_close.pop());
+            if (bracket_close.length > 0)
+                string += close_tags(bracket_close.pop());
             pending = []; // Should already be empty
             continue;
         }
@@ -79,6 +80,8 @@ function stringify(tokens, italicize_latin) {
         string += open_tags(pending) + tokens[i] + close_tags(pending);
         pending = [];
     }
+    while (bracket_close.length > 0)
+        string += close_tags(bracket_close.pop());
     return string;
 }
 
