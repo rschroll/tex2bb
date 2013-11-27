@@ -61,14 +61,14 @@ function stringify(tokens, italicize_latin) {
             continue;
         }
         
-        if (tokens[i] == "{") {
+        if (tokens[i] == "OPEN{") {
             bracket_close.push(pending);
             string += open_tags(pending);
             pending = [];
             continue;
         }
         
-        if (tokens[i] == "}") {
+        if (tokens[i] == "CLOSE}") {
             string += close_tags(bracket_close.pop());
             pending = []; // Should already be empty
             continue;

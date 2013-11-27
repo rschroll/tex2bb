@@ -349,6 +349,11 @@ SYMBOLS = {
 // Useful escapes:
 "\\\\": "\n",
 "\\%": "%",
+// Handle brackets:
+"\\{": "{",
+"\\}": "}",
+"{": "OPEN{",
+"}": "CLOSE}",
 // Some HTML character codes:
 "<": "&lt;",
 ">": "&gt;",
